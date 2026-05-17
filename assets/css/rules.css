@@ -1,0 +1,146 @@
+
+/* --- СИСТЕМНЫЕ НАСТРОЙКИ И ПЕРЕМЕННЫЕ --- */
+:root {
+    --bg-main: #06080c;           /* Глубокий полуночный фон */
+    --bg-card: rgba(13, 17, 27, 0.75); /* Матовое обсидиановое стекло */
+    --neon-cyan: #00f0ff;         /* Кибер-бирюзовый */
+    --neon-purple: #bb26ff;       /* Неоновый фиолетовый */
+    --text-main: #f3f4f6;
+    --text-muted: #62728f;
+    --border-glass: rgba(255, 255, 255, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 24px 16px 40px 16px;
+}
+
+/* Декоративный неоновый фон */
+.ambient-glow {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(120px);
+    opacity: 0.12;
+}
+.glow-1 { top: -100px; right: -100px; background: var(--neon-purple); }
+.glow-2 { bottom: -50px; left: -150px; background: var(--neon-cyan); }
+
+/* --- ШАПКА СТРАНИЦЫ ПРАВИЛ --- */
+.rules-header {
+    margin-bottom: 28px;
+    padding-left: 4px;
+}
+
+.rules-header h1 {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    background: linear-gradient(to right, #fff, #a3aab8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+}
+
+.rules-header p {
+    font-size: 11px;
+    color: var(--neon-cyan);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* --- СПИСОК ПРАВИЛ НА ВЕСЬ ЭКРАН --- */
+.rules-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.rule-item {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glass);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    gap: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.rule-num {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--neon-cyan);
+    font-family: monospace;
+    line-height: 1.2;
+}
+
+.rule-text h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #fff;
+}
+
+.rule-text p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* --- ИСЧЕЗАЮЩАЯ КНОПКА ВОЗВРАТА (STICKY) --- */
+.fixed-action {
+    position: fixed;
+    bottom: 24px;
+    left: 16px;
+    right: 16px;
+    z-index: 100;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Класс для скрытия кнопки программно */
+.fixed-action.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+}
+
+.btn-back {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #161c2c, #0d111b);
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    color: var(--text-main);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+    transition: all 0.2s;
+}
+
+.btn-back:active {
+    transform: scale(0.98);
+    background: linear-gradient(135deg, #0d111b, #06080c);
+}
