@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="assets/css/rules.css">
+    <title>Правила Сообщества</title>
+</head>
+<body>
+
+    <!-- Неоновые фоновые пятна -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Шапка страницы -->
+    <div class="rules-header">
+        <h1>Правила чата</h1>
+        <p>Блок регламента сообщества</p>
+    </div>
+
+    <!-- Список правил на всю ширину страницы -->
+    <div class="rules-list">
+        <div class="rule-item">
+            <span class="rule-num">01</span>
+            <div class="rule-text">
+                <h4>Антиспам-контроль</h4>
+                <p>Запрещено отправлять один и тот же вопрос несколько раз.</p>
+            </div>
+        </div>
+
+        <div class="rule-item">
+            <span class="rule-num">02</span>
+            <div class="rule-text">
+                <h4>Никаких оскорблений</h4>
+                <p>Вопросы с нецензурной лексикой удаляются мгновенно.</p>
+            </div>
+        </div>
+
+        <div class="rule-item">
+            <span class="rule-num">03</span>
+            <div class="rule-text">
+                <h4>Тематика стрима</h4>
+                <p>Вопросы должны соответствовать теме трансляции.</p>
+            </div>
+        </div>
+
+        <div class="rule-item">
+            <span class="rule-num">04</span>
+            <div class="rule-text">
+                <h4>Уважение к чату</h4>
+                <p>Не используйте капс, избегайте флуда.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed-action" id="back-button-container">
+        <button class="btn-back" onclick="history.back()">← Вернуться назад</button>
+    </div>
+
+    <script src="assets/js/twa.js"></script>
+    <script>
+        let lastScrollTop = 0;
+        const btn = document.getElementById('back-button-container');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > 50 && scrollTop > lastScrollTop) {
+                btn.classList.add('hidden');
+            } else {
+                btn.classList.remove('hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+    </script>
+
+</body>
+</html>
